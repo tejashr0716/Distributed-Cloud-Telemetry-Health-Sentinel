@@ -1,116 +1,72 @@
-# CloudSentinel — Distributed Multi-Region Cloud Telemetry & Health Sentinel Engine
+# CloudSentinel — educational local prototype
 
-[![C++17 SIMD Core](https://img.shields.io/badge/C%2B%2B17-SIMD%20Engine-blue?style=for-the-badge&logo=c%2B%2B)](file:///Users/tejashr/Desktop/Distributed-Cloud-Telemetry-Health-Sentinel/src/cloudsentinel.cpp)
-[![FastAPI & WebSockets](https://img.shields.io/badge/FastAPI-WebSockets%20Gateway-009688?style=for-the-badge&logo=fastapi)](file:///Users/tejashr/Desktop/Distributed-Cloud-Telemetry-Health-Sentinel/python/api/main.py)
-[![Apache Spark 4.2](https://img.shields.io/badge/Apache%20Spark-4.2%20Analytics-E25A1C?style=for-the-badge&logo=apachespark)](file:///Users/tejashr/Desktop/Distributed-Cloud-Telemetry-Health-Sentinel/python/spark/spark_telemetry_forecaster.py)
-[![Redis TTL & Pub/Sub](https://img.shields.io/badge/Redis-Cluster%20Heartbeats-DC382D?style=for-the-badge&logo=redis)](file:///Users/tejashr/Desktop/Distributed-Cloud-Telemetry-Health-Sentinel/python/services/redis_service.py)
-[![RabbitMQ Event Bus](https://img.shields.io/badge/RabbitMQ-Durable%20DLQ-FF6600?style=for-the-badge&logo=rabbitmq)](file:///Users/tejashr/Desktop/Distributed-Cloud-Telemetry-Health-Sentinel/python/services/rabbitmq_service.py)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16%20Relational-4169E1?style=for-the-badge&logo=postgresql)](file:///Users/tejashr/Desktop/Distributed-Cloud-Telemetry-Health-Sentinel/sql/schema.sql)
-[![Pytest Passing](https://img.shields.io/badge/Pytest-100%25%20Passing-brightgreen?style=for-the-badge&logo=pytest)](file:///Users/tejashr/Desktop/Distributed-Cloud-Telemetry-Health-Sentinel/python/tests/test_cloudsentinel.py)
+Synthetic multi-region telemetry prototype with a scalar C++ health-scoring library, PostgreSQL history, Redis windows and best-effort RabbitMQ alerts. No live AWS/Azure integration or explicit SIMD implementation.
 
-**CloudSentinel** is a distributed, ultra-low-latency cloud telemetry ingestion and multi-region health sentinel engine. Engineered with a vectorized C++17 SIMD evaluation core, it computes composite infrastructure health scores and detects microsecond statistical anomalies (Z-score / EWMA) across multi-cloud topologies spanning AWS and Microsoft Azure.
+**Security boundary:** no authentication, authorization, rate limiting or public-hosting hardening. Bind to loopback only. This is not production-ready and has not been publicly deployed by this remediation.
 
----
+## Start a disposable local demo
 
-## 🏛️ System Architecture
+Python 3.13 and C++17 are the tested runtime family. PostgreSQL 16 and Redis are required. RabbitMQ is optional for degraded local demonstrations; unavailable broker state is reported explicitly. Spark is optional and not installed in the supplied validation run.
 
-```mermaid
-flowchart TD
-    subgraph Multi_Cloud_Topology ["Multi-Cloud Ingress & Compute Nodes"]
-        A1["AWS us-east-1 (c6i.4xlarge)"]
-        A2["AWS eu-west-1 (c6i.4xlarge)"]
-        AZ1["Azure eastus (D16s_v5)"]
-        AZ2["Azure westeurope (D16s_v5)"]
-    end
+### Docker Compose (configuration supplied; not executed in this audit)
 
-    subgraph Gateway_Layer ["FastAPI Ingest & WebSocket Gateway"]
-        GW["Async Ingest Gateway"]
-        WS["WebSocket Real-Time Broadcast (/ws/telemetry)"]
-    end
-
-    subgraph Native_Core ["C++17 SIMD Sentinel Engine (libcloudsentinel.dylib)"]
-        SIMD["SIMD Health Vectorizer (7.00M evals/sec)"]
-        ANOM["Z-Score Outlier & Anomaly Detector"]
-        QUORUM["Quorum Consensus Health Evaluator"]
-    end
-
-    subgraph Distributed_Storage ["Distributed State & Event Fabrics"]
-        RD["Redis 7 (DB 3): Node TTL Heartbeats & Rolling Metric Windows"]
-        RMQ["RabbitMQ: Durable Event Bus & DLQ Escalations"]
-        PG[("PostgreSQL 16: Telemetry Logs & Incident Registry")]
-    end
-
-    subgraph Analytics_Layer ["Big Data & Forecast Engine"]
-        SPARK["Apache Spark 4.2 Degradation Forecaster & Memory Leak Slope"]
-    end
-
-    A1 & A2 & AZ1 & AZ2 -->|HTTP/REST Telemetry| GW
-    GW -->|ctypes FFI Zero-Copy| Native_Core
-    GW -->|Heartbeats & Cache| RD
-    GW -->|Persist Logs| PG
-    GW -->|Degraded/Critical Alerts| RMQ
-    GW -->|Live Stream| WS
-    PG -.->|Historical Batch Logs| SPARK
-```
-
----
-
-## ⚡ Hardware Benchmarks
-
-Native C++ and asynchronous pipeline benchmarks executed on Apple Silicon (ARM64) with Clang 21.0.0 and PostgreSQL 16:
-
-| Benchmark Dimension | Metric | Performance |
-| :--- | :--- | :--- |
-| **C++ Single Node Evaluation** | Throughput / Latency | **6.74 Million evals/sec** (148.37 ns/eval) |
-| **C++ SIMD Batch Evaluation** | Throughput / Latency | **7.00 Million evals/sec** (142.77 ns/eval) |
-| **C++ Z-Score Anomaly Detector** | Throughput / Latency | **6.65 Million tests/sec** (150.27 ns/test) |
-| **End-to-End Pipeline Ingest** | Sustained Throughput | **731.8 requests/sec** (with Postgres, Redis & RabbitMQ) |
-| **End-to-End Latency** | p50 / p95 / p99 | **25.36 ms** / **39.94 ms** / **80.94 ms** |
-
----
-
-## 🛠️ Technology Stack
-
-- **Languages:** C++17 (SIMD Vectorization, Loop Unrolling), Python 3.11+, SQL, JavaScript (ES6+), HTML5/CSS3.
-- **Core Distributed Systems:** Zero-Copy Ctypes FFI, Asynchronous Starlette/FastAPI, WebSockets Full-Duplex PubSub.
-- **Data & Caching Fabrics:** Redis 7 (DB 3 for Heartbeat TTLs & Rolling Metric Series), RabbitMQ (Durable Topic Exchange & DLQ), PostgreSQL 16 / Azure SQL relational persistence.
-- **Data Analytics:** Apache Spark 4.2 Batch & Degradation Forecaster.
-- **DevOps & Verification:** Docker, Docker Compose, GitHub Actions CI, Pytest Test Suite.
-
----
-
-## 🚀 Quickstart & Reproduction
-
-### 1. Build C++ Native Shared Library
 ```bash
-clang++ -O3 -fPIC -dynamiclib -std=c++17 -I./include src/cloudsentinel.cpp -o libcloudsentinel.dylib
+docker compose up --build -d
+docker compose ps
+# Open http://127.0.0.1:8001/demo
 ```
 
-### 2. Run Native Hardware Benchmarks
+Compose binds published ports to 127.0.0.1. Its database passwords are local demo defaults, not production secrets. Initial schema runs only on an empty Docker database volume. Never use `docker compose down -v` on data you need. Image tags are not immutable digests.
+
+### Native processes (this path was actually tested on Linux)
+
 ```bash
-clang++ -O3 -std=c++17 -I./include benchmarks/bench_engine.cpp -L. -lcloudsentinel -Wl,-rpath,. -o bench_engine
-./bench_engine
+python3.13 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+./scripts/build_native.sh
+export POSTGRES_HOST=127.0.0.1 POSTGRES_PORT=5432
+export POSTGRES_DB=cloudsentinel_db POSTGRES_USER=your_local_user
+export POSTGRES_PASSWORD=your_local_password
+export REDIS_HOST=127.0.0.1 REDIS_PORT=6379
+# Create the database first, then initialize a fresh/disposable database:
+psql -v ON_ERROR_STOP=1 -h "$POSTGRES_HOST" -p "$POSTGRES_PORT" -U "$POSTGRES_USER" -d "$POSTGRES_DB" -f sql/schema.sql
+uvicorn python.api.main:app --host 127.0.0.1 --port 8011
+# Open http://127.0.0.1:8011/demo
 ```
 
-### 3. Initialize PostgreSQL Database & Seed Topology
+Set `PGPASSWORD` privately for psql if needed; it does not read POSTGRES_PASSWORD. Do not commit credentials. Services in the supplied audit used isolated PostgreSQL port 55432 and Redis port 56379, not your system services. The build script emits the host's `.so` or `.dylib`; no precompiled Mac binaries are shipped.
+
+## Test and benchmark
+
+Start the gateway above before running the real HTTP suite. These tests and benchmarks mutate a **disposable** local database.
+
 ```bash
-createdb cloudsentinel_db
-psql -d cloudsentinel_db -f sql/schema.sql
+source .venv/bin/activate
+export BASE_URL=http://127.0.0.1:8011
+PYTHONPATH=. pytest python/tests tests -v --junitxml=reports/tests.xml
+./scripts/build_native.sh > reports/native-benchmark.txt
+python benchmarks/run_real_http_benchmark.py
 ```
 
-### 4. Run Pytest Suite
-```bash
-pytest -v python/tests/test_cloudsentinel.py
-```
+The HTTP script defaults to three trials of 200 requests, concurrency 10, ten warmups per trial (none for contention); it records successes, status counts and raw timings. Latency is complete request/response time over loopback TCP, **not network transit time alone**. Failed requests are not counted as successful throughput. Measurements are not cloud SLAs. Native numbers have zero HTTP/database/network work and must never be presented as distributed throughput.
 
-### 5. Launch Ingest Gateway
-```bash
-uvicorn python.api.main:app --host 0.0.0.0 --port 8000 --reload
-```
+The legacy Spark test explicitly skips without PySpark. A skipped test is not a passing test and test pass rate is not code coverage. Installing Spark additionally requires a compatible PySpark/Java combination; that path is unverified here.
 
----
+## Actual dashboard vs static showcase
 
-## 🌐 Live Interactive Dashboard
+`/demo` is served by FastAPI and calls same-origin API/WebSocket endpoints. It shows actual response JSON, dependency status and bounded reconnect attempts. `web/index.html` is an informational static showcase only, not a backend simulation or performance measurement. Publishing that HTML to GitHub Pages does not deploy Python, C++, PostgreSQL or RabbitMQ.
 
-The interactive web showcase is deployed live to:
-👉 **[https://tejashr0716.github.io/cloudsentinel/](https://tejashr0716.github.io/cloudsentinel/)**
+WebSocket events are best-effort and **process-local**: clients connected to another gateway process do not receive them. Slow sends are bounded by a two-second timeout per client; sequential broadcasts can still delay responses with many slow clients. There is no durable replay, outbox or exactly-once delivery. SQL commits and external notifications are not one atomic operation.
+
+## Validation and publication
+
+See `reports/VALIDATION.md`, `reports/tests.log`, JUnit XML, native output and real HTTP JSON. CI configuration has been repaired to build Linux `.so` and run the HTTP suite, but a remote CI run was not performed. Docker and RabbitMQ delivery were not executed here. No cloud integration, crash-recovery proof or production resilience claim is implied. Local fixes must be reviewed, committed and pushed by the repository owner; public GitHub and Pages are unchanged until that happens.
+
+## Telemetry semantics and remaining limitations
+
+Regions and nodes are seeded synthetic labels, not live AWS CloudWatch or Azure Monitor connectors. Health is a configurable-style heuristic, not a proven predictive model. The batch loop is scalar, unrolled by four; no explicit SIMD or measured speedup attribution is claimed.
+
+Single-event telemetry and any resulting alert rows are committed together before notification. Redis rolling history, RabbitMQ publication and WebSocket messages occur after SQL commit and are best-effort. A committed alert can therefore exist without a delivered broker notification. No worker acknowledgement or durable outbox delivery has been verified. Batch ingestion does not offer atomic cross-service consistency; concurrent rolling-window updates are not a linearizable global stream. Restart does not reconstruct every Redis history window from PostgreSQL.
+
+`sql/schema.sql` now preserves tables and skips duplicate seed IDs. It is not a general migration framework; schema changes on existing installations require explicit reviewed migrations. JSON health measurements reject non-finite values; batches are limited to 1,000 items.

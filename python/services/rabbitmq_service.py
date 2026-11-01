@@ -22,7 +22,8 @@ async def init_rabbitmq():
             host=RABBITMQ_HOST,
             port=RABBITMQ_PORT,
             login=RABBITMQ_USER,
-            password=RABBITMQ_PASSWORD
+            password=RABBITMQ_PASSWORD,
+            timeout=3
         )
         channel = await connection.channel()
         exchange = await channel.declare_exchange("cloudsentinel.events", aio_pika.ExchangeType.TOPIC, durable=True)
@@ -53,8 +54,11 @@ async def publish_incident_alert(routing_key: str, alert_data: Dict[str, Any]):
                 content_type="application/json"
             )
             await exchange.publish(message, routing_key=routing_key)
+            return True
         except Exception as e:
             logger.error(f"Failed to publish alert to RabbitMQ: {e}")
+
+    return False
 
 async def close_rabbitmq():
     global connection

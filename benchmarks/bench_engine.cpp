@@ -7,7 +7,7 @@
 
 int main() {
     std::cout << "========================================================\n";
-    std::cout << "   CloudSentinel C++ SIMD Telemetry Benchmark           \n";
+    std::cout << "   CloudSentinel C++ scalar loop-unrolled Telemetry Benchmark           \n";
     std::cout << "========================================================\n\n";
 
     const int N = 2000000;
@@ -44,7 +44,7 @@ int main() {
               << (single_ops_sec / 1e6) << " Million evals/sec ("
               << single_ns_op << " ns/op)\n";
 
-    // 2. Batch Loop-Unrolled SIMD Benchmark
+    // 2. Batch Loop-Unrolled scalar loop-unrolled Benchmark
     start = std::chrono::high_resolution_clock::now();
     batch_evaluate_metrics(metrics.data(), slas.data(), N, results.data());
     end = std::chrono::high_resolution_clock::now();
@@ -52,7 +52,7 @@ int main() {
     double batch_ops_sec = (double)N / batch_elapsed_sec;
     double batch_ns_op = (batch_elapsed_sec / (double)N) * 1e9;
 
-    std::cout << ">> Batch SIMD Throughput:        " << std::fixed << std::setprecision(2)
+    std::cout << ">> Batch scalar throughput:        " << std::fixed << std::setprecision(2)
               << (batch_ops_sec / 1e6) << " Million evals/sec ("
               << batch_ns_op << " ns/op)\n";
 

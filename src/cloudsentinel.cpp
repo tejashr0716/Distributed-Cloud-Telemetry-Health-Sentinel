@@ -92,7 +92,7 @@ void evaluate_node_health(const NodeMetrics* metrics, double latency_sla_ms, Hea
 void batch_evaluate_metrics(const NodeMetrics* batch, const double* slas, int32_t count, HealthEvaluation* out_evals) {
     if (!batch || !out_evals || count <= 0) return;
 
-    // Process with unrolled loop for SIMD auto-vectorization
+    // Scalar loop unrolled by four; no explicit SIMD guarantee
     int32_t i = 0;
     for (; i <= count - 4; i += 4) {
         evaluate_node_health(&batch[i], slas ? slas[i] : 50.0, &out_evals[i]);

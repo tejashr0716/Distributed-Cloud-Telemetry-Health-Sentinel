@@ -30,7 +30,7 @@ typedef struct {
 // Single node health evaluation
 void evaluate_node_health(const NodeMetrics* metrics, double latency_sla_ms, HealthEvaluation* out_eval);
 
-// SIMD/Loop-unrolled batch node evaluation
+// Scalar loop-unrolled batch node evaluation
 void batch_evaluate_metrics(const NodeMetrics* batch, const double* slas, int32_t count, HealthEvaluation* out_evals);
 
 // Statistical Z-score outlier and anomaly detection

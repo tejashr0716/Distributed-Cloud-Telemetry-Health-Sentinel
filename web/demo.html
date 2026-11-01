@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>cloudsentinel Local Backend Demo</title>
+<style>*{box-sizing:border-box}html{overflow-wrap:anywhere}input,select,button{max-width:100%}body{font:16px system-ui;background:#101828;color:#eaf0ff;max-width:1000px;margin:auto;padding:24px}label{display:block;margin:12px 0}input,select,button{font:inherit;padding:10px;margin:5px;border-radius:5px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#172b40;padding:15px;max-height:440px;overflow:auto}aside{padding:16px;background:#593d13}button{cursor:pointer}</style>
+<h1>cloudsentinel — real local API demonstration</h1><aside>Local educational prototype. No authentication: never expose this server publicly. This page uses same-origin API and WebSocket connections, not browser simulation. Synthetic AWS/Azure-labelled regions; no provider API integration.</aside>
+<p id="health">Checking database/native engine…</p><p id="socket">WebSocket connecting…</p>
+<label>Node <select id="node"></select></label>
+<button id="healthy">Send synthetic healthy telemetry</button><button id="critical">Send synthetic critical telemetry</button> <button id="refresh">Refresh backend state</button><h2>Actual API responses and live events</h2><pre id="events" aria-live="polite"></pre>
+<script>
+const lines=[];function log(data){lines.push(JSON.stringify(data,null,2));if(lines.length>100)lines.shift();const el=document.querySelector('#events');el.textContent=lines.join('\n');el.scrollTop=el.scrollHeight;}
+async function api(path,data){const r=await fetch(path,data?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}:{});const body=await r.json();if(!r.ok)throw Error(r.status+' '+JSON.stringify(body));return body;}
+async function send(critical){const node_id=document.querySelector('#node').value;if(!node_id)throw Error('No backend node'); log(await api('/api/v1/telemetry',{node_id,cpu_pct:critical?99:20,mem_pct:critical?98:30,disk_pct:critical?95:40,p99_latency_ms:critical?500:10,error_rate_pct:critical?15:0.01}));}
+for(const [id,bad] of [['healthy',false],['critical',true]])document.getElementById(id).onclick=()=>send(bad).catch(e=>log({error:e.message}));
+async function refresh(){const nodes=await api('/api/v1/nodes');const select=document.querySelector('#node'); select.replaceChildren(...nodes.map(n=>{const option=document.createElement('option');option.value=n.node_id;option.textContent=n.node_id;return option;}));log(await api('/api/v1/regions'));log(await api('/api/v1/alerts'));}
+let socket,timer,attempt=0,stopped=false;
+function connect(){socket=new WebSocket((location.protocol==='https:'?'wss:':'ws:')+'//'+location.host+'/ws/telemetry');socket.onopen=()=>{attempt=0;document.querySelector('#socket').textContent='WebSocket connected (events from this gateway process)';};socket.onmessage=e=>{try{log({source:'websocket',event:JSON.parse(e.data)});}catch{log({error:'Invalid websocket JSON'});}};socket.onerror=()=>socket.close();socket.onclose=()=>{document.querySelector('#socket').textContent='WebSocket disconnected — retrying';if(!stopped&&attempt++<10)timer=setTimeout(connect,Math.min(10000,500*2**Math.min(attempt,5))+Math.random()*250);};}
+window.addEventListener('pagehide',()=>{stopped=true;clearTimeout(timer);socket?.close();});
+document.querySelector('#refresh').onclick=()=>refresh().catch(e=>log({error:e.message}));
+api('/health').then(h=>{document.querySelector('#health').textContent=JSON.stringify(h);return refresh();}).catch(e=>{document.querySelector('#health').textContent='Backend error: '+e.message;});connect();
+</script></html>

@@ -2,11 +2,14 @@ import asyncio
 import json
 import logging
 from contextlib import asynccontextmanager
+from pathlib import Path
+import os
 from typing import List, Optional, Dict, Any
 
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect, HTTPException, Query, status
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field
+from fastapi.responses import FileResponse
+from pydantic import BaseModel, Field, ConfigDict
 
 from python.database.connection import init_db_pool, close_db_pool, get_db_pool
 from python.services.cpp_bridge import CloudSentinelEngine
@@ -44,7 +47,7 @@ class ConnectionManager:
     async def broadcast(self, message: Dict[str, Any]):
         for connection in list(self.active_connections):
             try:
-                await connection.send_json(message)
+                await asyncio.wait_for(connection.send_json(message), timeout=2)
             except Exception:
                 self.disconnect(connection)
 
@@ -57,7 +60,7 @@ async def lifespan(app: FastAPI):
     await init_redis()
     await init_rabbitmq()
     get_engine()
-    logger.info("CloudSentinel C++ Engine and distributed services ready.")
+    logger.info("CloudSentinel synthetic telemetry service started; inspect /health for dependency availability.")
     yield
     logger.info("Shutting down CloudSentinel Services...")
     await close_rabbitmq()
@@ -67,19 +70,20 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title="CloudSentinel Multi-Region Telemetry Gateway",
     version="1.0.0",
-    description="High-Throughput Multi-Region Cloud Telemetry & Health Sentinel Engine",
+    description="Synthetic region telemetry prototype; no live cloud-provider connectors.",
     lifespan=lifespan
 )
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
+    allow_origins=os.getenv("CORS_ORIGINS", "http://localhost:8000,http://127.0.0.1:8000").split(","),
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 class TelemetryPayload(BaseModel):
+    model_config = ConfigDict(allow_inf_nan=False)
     node_id: str
     cpu_pct: float = Field(..., ge=0.0, le=100.0)
     mem_pct: float = Field(..., ge=0.0, le=100.0)
@@ -88,16 +92,19 @@ class TelemetryPayload(BaseModel):
     error_rate_pct: float = Field(..., ge=0.0, le=100.0)
 
 class BatchTelemetryPayload(BaseModel):
-    items: List[TelemetryPayload]
+    items: List[TelemetryPayload] = Field(max_length=1000)
 
 @app.get("/health")
 async def health_check():
-    return {
-        "status": "HEALTHY",
-        "service": "CloudSentinel Telemetry Gateway",
-        "engine": "C++ SIMD Vectorized Core Loaded",
-        "active_websockets": len(ws_manager.active_connections)
-    }
+    db = await get_db_pool()
+    async with db.acquire() as conn:
+        await conn.fetchval("SELECT 1")
+    get_engine()
+    from python.services import rabbitmq_service
+    return {"status": "READY" if rabbitmq_service.exchange is not None else "DEGRADED",
+            "database": "reachable", "native_engine": "loaded",
+            "broker": "connected" if rabbitmq_service.exchange is not None else "unavailable",
+            "scope": "local educational prototype; synthetic telemetry, best-effort notifications"}
 
 @app.get("/api/v1/regions")
 async def get_regions():
@@ -126,7 +133,7 @@ async def get_regions():
             quorum_score = eng.quorum_health(node_scores, min_quorum=max(1, len(nodes) // 2)) if node_scores else 100.0
 
             region_status = "HEALTHY" if quorum_score >= 75.0 else ("DEGRADED" if quorum_score >= 45.0 else "CRITICAL")
-            await conn.execute("UPDATE regions SET status = $1 WHERE region_id = $2;", region_status, r["region_id"])
+            # Read-only computed region summary; no write on GET.
 
             output.append({
                 "region_id": r["region_id"],
@@ -185,7 +192,7 @@ async def get_nodes(region_id: Optional[str] = None):
 async def ingest_telemetry(payload: TelemetryPayload):
     db = await get_db_pool()
     eng = get_engine()
-    async with db.acquire() as conn:
+    async with db.acquire() as conn, conn.transaction():
         node = await conn.fetchrow("SELECT n.*, r.latency_sla_ms FROM nodes n JOIN regions r ON n.region_id = r.region_id WHERE n.node_id = $1;", payload.node_id)
         if not node:
             raise HTTPException(status_code=404, detail=f"Node '{payload.node_id}' not found.")
@@ -221,12 +228,9 @@ async def ingest_telemetry(payload: TelemetryPayload):
         # 4. Update Node State & Heartbeat in Redis
         node_status = "ONLINE" if eval_result["health_score"] >= 65.0 else ("DEGRADED" if eval_result["health_score"] >= 35.0 else "CRITICAL")
         await conn.execute("UPDATE nodes SET status = $1, last_heartbeat_at = NOW() WHERE node_id = $2;", node_status, payload.node_id)
-        await set_node_heartbeat(payload.node_id, ttl_seconds=45)
-        await record_metric_history(payload.node_id, "latency", payload.p99_latency_ms)
-        await record_metric_history(payload.node_id, "cpu", payload.cpu_pct)
-
         # 5. Incident Alert Escalation
         alert_created = False
+        pending_alert = None
         if eval_result["health_score"] < 65.0 or anomaly_info.get("is_anomaly", False):
             severity = "CRITICAL" if eval_result["health_score"] < 35.0 else "WARNING"
             metric_trigger = "Latency SLA" if payload.p99_latency_ms > sla else ("Error Rate" if payload.error_rate_pct > 2.0 else "Resource Pressure")
@@ -241,14 +245,14 @@ async def ingest_telemetry(payload: TelemetryPayload):
             alert_created = True
             # Publish to RabbitMQ
             routing_key = f"cloudsentinel.alert.{severity.lower()}"
-            await publish_incident_alert(routing_key, {
+            pending_alert = {
                 "alert_id": alert_row["alert_id"],
                 "node_id": payload.node_id,
                 "severity": severity,
                 "reason": eval_result["alert_reason"],
                 "health_score": eval_result["health_score"],
                 "created_at": alert_row["created_at"].isoformat()
-            })
+            }
 
         event_data = {
             "type": "TELEMETRY_INGEST",
@@ -262,11 +266,19 @@ async def ingest_telemetry(payload: TelemetryPayload):
             "timestamp": row["recorded_at"].isoformat()
         }
 
-        # Redis PubSub & WebSocket broadcast
+    # Durable database transaction completed. External delivery is explicitly best effort.
+    event_data["broker_published"] = False
+    if pending_alert:
+        event_data["broker_published"] = await publish_incident_alert(routing_key, pending_alert)
+    try:
+        await set_node_heartbeat(payload.node_id, ttl_seconds=45)
+        await record_metric_history(payload.node_id, "latency", payload.p99_latency_ms)
+        await record_metric_history(payload.node_id, "cpu", payload.cpu_pct)
         await publish_telemetry(event_data)
-        asyncio.create_task(ws_manager.broadcast(event_data))
-
-        return event_data
+    except Exception:
+        logger.exception("Best-effort Redis notification failed after durable telemetry write")
+    await ws_manager.broadcast(event_data)
+    return event_data
 
 @app.post("/api/v1/telemetry/batch", status_code=status.HTTP_201_CREATED)
 async def ingest_batch_telemetry(payload: BatchTelemetryPayload):
@@ -351,3 +363,7 @@ async def websocket_telemetry(websocket: WebSocket):
         ws_manager.disconnect(websocket)
     except Exception:
         ws_manager.disconnect(websocket)
+
+@app.get("/demo", include_in_schema=False)
+async def backend_demo():
+    return FileResponse(Path(__file__).resolve().parents[2] / "web" / "demo.html")

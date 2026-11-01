@@ -8,7 +8,6 @@ from python.api.main import app
 from python.services.cpp_bridge import CloudSentinelEngine
 from python.database.connection import close_db_pool
 from python.services.redis_service import init_redis, set_node_heartbeat, is_node_online, close_redis
-from python.spark.spark_telemetry_forecaster import run_telemetry_forecaster
 
 @pytest.fixture(scope="module")
 def cpp_engine():
@@ -79,7 +78,7 @@ async def test_api_health_endpoint(async_client):
     resp = await async_client.get("/health")
     assert resp.status_code == 200
     data = resp.json()
-    assert data["status"] == "HEALTHY"
+    assert data["database"] == "reachable"
 
 @pytest.mark.asyncio
 async def test_api_regions_and_nodes(async_client):
@@ -152,6 +151,8 @@ async def test_api_batch_telemetry(async_client):
     assert len(res["evaluations"]) == 2
 
 def test_spark_forecaster_analytics(tmp_path):
+    pytest.importorskip("pyspark", reason="Optional Spark dependency not installed")
+    from python.spark.spark_telemetry_forecaster import run_telemetry_forecaster
     input_file = str(tmp_path / "telemetry_input.json")
     output_report = str(tmp_path / "telemetry_report.json")
 
