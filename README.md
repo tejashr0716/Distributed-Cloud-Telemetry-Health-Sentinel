@@ -70,3 +70,7 @@ Regions and nodes are seeded synthetic labels, not live AWS CloudWatch or Azure 
 Single-event telemetry and any resulting alert rows are committed together before notification. Redis rolling history, RabbitMQ publication and WebSocket messages occur after SQL commit and are best-effort. A committed alert can therefore exist without a delivered broker notification. No worker acknowledgement or durable outbox delivery has been verified. Batch ingestion does not offer atomic cross-service consistency; concurrent rolling-window updates are not a linearizable global stream. Restart does not reconstruct every Redis history window from PostgreSQL.
 
 `sql/schema.sql` now preserves tables and skips duplicate seed IDs. It is not a general migration framework; schema changes on existing installations require explicit reviewed migrations. JSON health measurements reject non-finite values; batches are limited to 1,000 items.
+
+## Optional repeatable browser smoke test
+
+Install Playwright separately (not an application runtime dependency), install its Chromium browser and run `node benchmarks/check_browser.cjs` with BASE_URL set to the running gateway. Set CHROMIUM_PATH if using system Chromium. The test performs actual API actions in `/demo`, requires WebSocket events, checks page errors and mobile overflow, and writes screenshots plus JSON to reports/. It uses a disposable resource and can create synthetic telemetry alerts.

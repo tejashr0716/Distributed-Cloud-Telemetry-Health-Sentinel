@@ -1,0 +1,11 @@
+========================================================
+   CloudSentinel C++ scalar loop-unrolled Telemetry Benchmark           
+========================================================
+
+>> Single Evaluation Throughput: 4.66 Million evals/sec (214.39 ns/op)
+>> Batch scalar throughput:        4.62 Million evals/sec (216.26 ns/op)
+>> Anomaly Detection Throughput: 4.15 Million tests/sec (241.12 ns/op)
+
+Sample Evaluated Result:
+  Health Score: 48.90 | Status: DEGRADED | Reason: Elevated Error Rate (7.23%)
+========================================================

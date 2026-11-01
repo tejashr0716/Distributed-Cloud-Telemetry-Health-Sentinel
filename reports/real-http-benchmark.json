@@ -1,0 +1,4266 @@
+{
+  "project": "cloudsentinel",
+  "base_url": "http://127.0.0.1:8011",
+  "boundary": "client HTTP POST/full response over loopback TCP to Uvicorn; includes API work, not pure network latency",
+  "platform": "Linux-6.18.56-x86_64-with-glibc2.34",
+  "python": "3.13.15",
+  "concurrency": 10,
+  "trials": 3,
+  "warmups_per_trial_except_contention": 10,
+  "health": {
+    "status": "DEGRADED",
+    "database": "reachable",
+    "native_engine": "loaded",
+    "broker": "unavailable",
+    "scope": "local educational prototype; synthetic telemetry, best-effort notifications"
+  },
+  "source_commit": "31ca829daf6284e7d3615bc0919a9d2fb933d76a",
+  "working_tree_dirty": true,
+  "summaries": [
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "attempted": 200,
+      "successful": 200,
+      "status_counts": {
+        "201": 200
+      },
+      "duration_seconds": 0.5876387880000493,
+      "successful_requests_per_second": 340.3451305191638,
+      "p50_success_ms": 25.227863999930378,
+      "p95_success_ms": 40.10230799985948,
+      "p99_success_ms": 82.94260200000281
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "attempted": 200,
+      "successful": 200,
+      "status_counts": {
+        "201": 200
+      },
+      "duration_seconds": 0.5024717159999454,
+      "successful_requests_per_second": 398.03235412363335,
+      "p50_success_ms": 24.061608500005605,
+      "p95_success_ms": 28.587567000158742,
+      "p99_success_ms": 41.11597499991149
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "attempted": 200,
+      "successful": 200,
+      "status_counts": {
+        "201": 200
+      },
+      "duration_seconds": 0.5830654930000492,
+      "successful_requests_per_second": 343.014639695001,
+      "p50_success_ms": 26.317423500017867,
+      "p95_success_ms": 41.80815299991991,
+      "p99_success_ms": 49.17808699997295
+    }
+  ],
+  "raw_samples": [
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 0,
+      "status": 201,
+      "latency_ms": 14.739567999868086
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 1,
+      "status": 201,
+      "latency_ms": 47.199166999917
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 2,
+      "status": 201,
+      "latency_ms": 67.02964500004782
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 10,
+      "status": 201,
+      "latency_ms": 54.977200999928755
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 4,
+      "status": 201,
+      "latency_ms": 69.98165200002404
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 6,
+      "status": 201,
+      "latency_ms": 72.73794099978659
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 11,
+      "status": 201,
+      "latency_ms": 30.637004000027446
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 7,
+      "status": 201,
+      "latency_ms": 77.16591800021888
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 5,
+      "status": 201,
+      "latency_ms": 79.66676499995629
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 3,
+      "status": 201,
+      "latency_ms": 83.38453700002901
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 9,
+      "status": 201,
+      "latency_ms": 82.94260200000281
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 8,
+      "status": 201,
+      "latency_ms": 86.92348199997468
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 13,
+      "status": 201,
+      "latency_ms": 23.875354999972842
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 12,
+      "status": 201,
+      "latency_ms": 28.520409000066138
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 14,
+      "status": 201,
+      "latency_ms": 26.792716000045402
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 16,
+      "status": 201,
+      "latency_ms": 22.071544000027643
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 17,
+      "status": 201,
+      "latency_ms": 22.066233000032298
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 15,
+      "status": 201,
+      "latency_ms": 29.55140299991399
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 18,
+      "status": 201,
+      "latency_ms": 24.899409999989075
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 19,
+      "status": 201,
+      "latency_ms": 28.07632300005025
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 20,
+      "status": 201,
+      "latency_ms": 31.13152700007049
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 21,
+      "status": 201,
+      "latency_ms": 30.449891999978718
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 24,
+      "status": 201,
+      "latency_ms": 26.44764599995142
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 22,
+      "status": 201,
+      "latency_ms": 32.532312999819624
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 25,
+      "status": 201,
+      "latency_ms": 28.172174000019368
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 23,
+      "status": 201,
+      "latency_ms": 34.5586009998442
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 26,
+      "status": 201,
+      "latency_ms": 30.524553000077503
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 28,
+      "status": 201,
+      "latency_ms": 27.29933799992068
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 27,
+      "status": 201,
+      "latency_ms": 33.45478999995066
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 29,
+      "status": 201,
+      "latency_ms": 30.216963999919244
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 30,
+      "status": 201,
+      "latency_ms": 30.256249000103708
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 31,
+      "status": 201,
+      "latency_ms": 29.193088000056377
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 32,
+      "status": 201,
+      "latency_ms": 27.93678400007593
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 33,
+      "status": 201,
+      "latency_ms": 31.483370000159994
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 34,
+      "status": 201,
+      "latency_ms": 31.494092000002638
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 35,
+      "status": 201,
+      "latency_ms": 30.801980999967782
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 38,
+      "status": 201,
+      "latency_ms": 26.18368299999929
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 37,
+      "status": 201,
+      "latency_ms": 31.257834000143703
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 36,
+      "status": 201,
+      "latency_ms": 35.972609000054945
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 39,
+      "status": 201,
+      "latency_ms": 28.34870099991349
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 40,
+      "status": 201,
+      "latency_ms": 24.79179900001327
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 41,
+      "status": 201,
+      "latency_ms": 25.460902000077112
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 42,
+      "status": 201,
+      "latency_ms": 27.620909000006577
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 43,
+      "status": 201,
+      "latency_ms": 24.80643100011548
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 44,
+      "status": 201,
+      "latency_ms": 24.06680000012784
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 45,
+      "status": 201,
+      "latency_ms": 24.04424599990307
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 46,
+      "status": 201,
+      "latency_ms": 24.927142000024105
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 47,
+      "status": 201,
+      "latency_ms": 26.84167500001422
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 48,
+      "status": 201,
+      "latency_ms": 28.01275399997394
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 50,
+      "status": 201,
+      "latency_ms": 24.324653999883594
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 49,
+      "status": 201,
+      "latency_ms": 29.33454500021071
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 51,
+      "status": 201,
+      "latency_ms": 26.288285999953587
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 53,
+      "status": 201,
+      "latency_ms": 25.33852199985631
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 55,
+      "status": 201,
+      "latency_ms": 22.548828000026333
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 52,
+      "status": 201,
+      "latency_ms": 31.69989199977863
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 54,
+      "status": 201,
+      "latency_ms": 29.937444000097457
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 56,
+      "status": 201,
+      "latency_ms": 26.608260000102746
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 57,
+      "status": 201,
+      "latency_ms": 24.832638999896517
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 58,
+      "status": 201,
+      "latency_ms": 23.184859000139113
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 59,
+      "status": 201,
+      "latency_ms": 23.505534999912925
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 60,
+      "status": 201,
+      "latency_ms": 23.631132000218713
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 61,
+      "status": 201,
+      "latency_ms": 25.093400999821824
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 62,
+      "status": 201,
+      "latency_ms": 23.44432399991092
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 63,
+      "status": 201,
+      "latency_ms": 23.49014099991109
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 65,
+      "status": 201,
+      "latency_ms": 21.613156000057643
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 64,
+      "status": 201,
+      "latency_ms": 25.365309999870078
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 66,
+      "status": 201,
+      "latency_ms": 23.871290999977646
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 67,
+      "status": 201,
+      "latency_ms": 25.17034899983628
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 68,
+      "status": 201,
+      "latency_ms": 24.187449999999444
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 69,
+      "status": 201,
+      "latency_ms": 23.607587000014973
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 70,
+      "status": 201,
+      "latency_ms": 24.76243199998862
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 71,
+      "status": 201,
+      "latency_ms": 23.87166700009402
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 72,
+      "status": 201,
+      "latency_ms": 22.31232399981309
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 73,
+      "status": 201,
+      "latency_ms": 26.41783400008535
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 75,
+      "status": 201,
+      "latency_ms": 23.5298130000956
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 74,
+      "status": 201,
+      "latency_ms": 27.981086999943727
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 76,
+      "status": 201,
+      "latency_ms": 25.936131999969803
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 77,
+      "status": 201,
+      "latency_ms": 24.587758000052418
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 79,
+      "status": 201,
+      "latency_ms": 22.168771999986348
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 78,
+      "status": 201,
+      "latency_ms": 26.730178999969212
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 80,
+      "status": 201,
+      "latency_ms": 24.689013000170235
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 81,
+      "status": 201,
+      "latency_ms": 23.12521800013201
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 82,
+      "status": 201,
+      "latency_ms": 23.834785999952146
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 83,
+      "status": 201,
+      "latency_ms": 20.14744200005225
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 84,
+      "status": 201,
+      "latency_ms": 24.544203000004927
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 86,
+      "status": 201,
+      "latency_ms": 22.00899800004663
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 85,
+      "status": 201,
+      "latency_ms": 26.060034000011
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 87,
+      "status": 201,
+      "latency_ms": 23.28890099988712
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 88,
+      "status": 201,
+      "latency_ms": 24.590726000042196
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 89,
+      "status": 201,
+      "latency_ms": 23.97732500003258
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 90,
+      "status": 201,
+      "latency_ms": 24.33011799985252
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 91,
+      "status": 201,
+      "latency_ms": 25.776680000035412
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 92,
+      "status": 201,
+      "latency_ms": 25.36052000004929
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 93,
+      "status": 201,
+      "latency_ms": 24.872513999980583
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 94,
+      "status": 201,
+      "latency_ms": 26.93498200005706
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 95,
+      "status": 201,
+      "latency_ms": 30.986794999989797
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 96,
+      "status": 201,
+      "latency_ms": 32.86821200003942
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 97,
+      "status": 201,
+      "latency_ms": 33.57997400007662
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 98,
+      "status": 201,
+      "latency_ms": 32.7412199999344
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 99,
+      "status": 201,
+      "latency_ms": 33.42558800000006
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 100,
+      "status": 201,
+      "latency_ms": 33.48703699998623
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 101,
+      "status": 201,
+      "latency_ms": 32.64711699989675
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 102,
+      "status": 201,
+      "latency_ms": 32.71259600001031
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 103,
+      "status": 201,
+      "latency_ms": 33.09977300000355
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 104,
+      "status": 201,
+      "latency_ms": 28.04706000006263
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 105,
+      "status": 201,
+      "latency_ms": 25.3072359998896
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 106,
+      "status": 201,
+      "latency_ms": 23.570931999984168
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 107,
+      "status": 201,
+      "latency_ms": 22.979051999982403
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 108,
+      "status": 201,
+      "latency_ms": 23.863592999987304
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 109,
+      "status": 201,
+      "latency_ms": 23.937324000144145
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 110,
+      "status": 201,
+      "latency_ms": 23.40091099995334
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 111,
+      "status": 201,
+      "latency_ms": 25.669005999816363
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 112,
+      "status": 201,
+      "latency_ms": 26.512196000112453
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 113,
+      "status": 201,
+      "latency_ms": 25.56361000006291
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 114,
+      "status": 201,
+      "latency_ms": 25.3302179999082
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 115,
+      "status": 201,
+      "latency_ms": 23.891437999964182
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 116,
+      "status": 201,
+      "latency_ms": 23.695287000009557
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 118,
+      "status": 201,
+      "latency_ms": 21.772263000002567
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 117,
+      "status": 201,
+      "latency_ms": 25.494745000059993
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 119,
+      "status": 201,
+      "latency_ms": 25.285379000024477
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 120,
+      "status": 201,
+      "latency_ms": 24.445139999897947
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 121,
+      "status": 201,
+      "latency_ms": 21.89454799986379
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 122,
+      "status": 201,
+      "latency_ms": 22.253365999858943
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 123,
+      "status": 201,
+      "latency_ms": 24.783843000022898
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 124,
+      "status": 201,
+      "latency_ms": 24.545311000110814
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 125,
+      "status": 201,
+      "latency_ms": 24.405623999882664
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 126,
+      "status": 201,
+      "latency_ms": 24.24004999988938
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 127,
+      "status": 201,
+      "latency_ms": 26.642107000043325
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 128,
+      "status": 201,
+      "latency_ms": 26.838380999834044
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 129,
+      "status": 201,
+      "latency_ms": 24.590686000010464
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 130,
+      "status": 201,
+      "latency_ms": 24.446248000003834
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 131,
+      "status": 201,
+      "latency_ms": 24.520994999875256
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 132,
+      "status": 201,
+      "latency_ms": 23.155855999902997
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 133,
+      "status": 201,
+      "latency_ms": 22.17938800004049
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 134,
+      "status": 201,
+      "latency_ms": 24.074536999933116
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 135,
+      "status": 201,
+      "latency_ms": 24.241690000053495
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 136,
+      "status": 201,
+      "latency_ms": 24.34554699993896
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 137,
+      "status": 201,
+      "latency_ms": 21.3724820000607
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 138,
+      "status": 201,
+      "latency_ms": 22.95473399999537
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 139,
+      "status": 201,
+      "latency_ms": 22.951771000180088
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 140,
+      "status": 201,
+      "latency_ms": 23.255029999972976
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 141,
+      "status": 201,
+      "latency_ms": 23.877755000057732
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 142,
+      "status": 201,
+      "latency_ms": 24.157290999937686
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 143,
+      "status": 201,
+      "latency_ms": 23.511299000119834
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 144,
+      "status": 201,
+      "latency_ms": 22.168189000012717
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 145,
+      "status": 201,
+      "latency_ms": 24.62385700005143
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 146,
+      "status": 201,
+      "latency_ms": 24.44409000008818
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 147,
+      "status": 201,
+      "latency_ms": 24.514167000006637
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 148,
+      "status": 201,
+      "latency_ms": 22.695054999985587
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 149,
+      "status": 201,
+      "latency_ms": 23.341345000062574
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 150,
+      "status": 201,
+      "latency_ms": 23.149847000013324
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 151,
+      "status": 201,
+      "latency_ms": 23.31684299997505
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 152,
+      "status": 201,
+      "latency_ms": 23.500813000055132
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 153,
+      "status": 201,
+      "latency_ms": 23.44621400015967
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 154,
+      "status": 201,
+      "latency_ms": 24.551063999979306
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 155,
+      "status": 201,
+      "latency_ms": 22.9707309999867
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 156,
+      "status": 201,
+      "latency_ms": 23.387045000163198
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 157,
+      "status": 201,
+      "latency_ms": 23.057986999901914
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 158,
+      "status": 201,
+      "latency_ms": 23.791390999804207
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 159,
+      "status": 201,
+      "latency_ms": 23.57821700002205
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 160,
+      "status": 201,
+      "latency_ms": 23.74266800006808
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 161,
+      "status": 201,
+      "latency_ms": 22.98388300005172
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 162,
+      "status": 201,
+      "latency_ms": 23.205644999961805
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 163,
+      "status": 201,
+      "latency_ms": 23.266946999910942
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 164,
+      "status": 201,
+      "latency_ms": 23.680843000192908
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 165,
+      "status": 201,
+      "latency_ms": 24.315312999988237
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 166,
+      "status": 201,
+      "latency_ms": 25.37469100002454
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 167,
+      "status": 201,
+      "latency_ms": 25.672844000155237
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 168,
+      "status": 201,
+      "latency_ms": 24.701134999986607
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 169,
+      "status": 201,
+      "latency_ms": 24.338068999895768
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 170,
+      "status": 201,
+      "latency_ms": 24.256852999997136
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 171,
+      "status": 201,
+      "latency_ms": 24.65997000012976
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 172,
+      "status": 201,
+      "latency_ms": 23.8805329997831
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 173,
+      "status": 201,
+      "latency_ms": 25.84215199999562
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 174,
+      "status": 201,
+      "latency_ms": 25.86519200008297
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 175,
+      "status": 201,
+      "latency_ms": 26.675115999978516
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 176,
+      "status": 201,
+      "latency_ms": 27.852219000124023
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 177,
+      "status": 201,
+      "latency_ms": 27.714739000202826
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 178,
+      "status": 201,
+      "latency_ms": 30.623419999983525
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 179,
+      "status": 201,
+      "latency_ms": 30.468530000007377
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 180,
+      "status": 201,
+      "latency_ms": 32.22040500008916
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 181,
+      "status": 201,
+      "latency_ms": 31.531668000070567
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 182,
+      "status": 201,
+      "latency_ms": 33.43113699997957
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 184,
+      "status": 201,
+      "latency_ms": 29.003264000039053
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 183,
+      "status": 201,
+      "latency_ms": 34.631917999831785
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 185,
+      "status": 201,
+      "latency_ms": 31.703849999985323
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 186,
+      "status": 201,
+      "latency_ms": 31.680606000008993
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 187,
+      "status": 201,
+      "latency_ms": 32.79600299993035
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 188,
+      "status": 201,
+      "latency_ms": 32.88911899994673
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 189,
+      "status": 201,
+      "latency_ms": 37.37383099996805
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 192,
+      "status": 201,
+      "latency_ms": 33.780033000084586
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 190,
+      "status": 201,
+      "latency_ms": 40.10230799985948
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 191,
+      "status": 201,
+      "latency_ms": 39.874286999975084
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 193,
+      "status": 201,
+      "latency_ms": 35.380627999984426
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 194,
+      "status": 201,
+      "latency_ms": 34.89235600000029
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 195,
+      "status": 201,
+      "latency_ms": 31.129624999948646
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 196,
+      "status": 201,
+      "latency_ms": 29.606414999989283
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 198,
+      "status": 201,
+      "latency_ms": 23.55330800014599
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 197,
+      "status": 201,
+      "latency_ms": 28.736739999885685
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 0,
+      "request": 199,
+      "status": 201,
+      "latency_ms": 19.434436999972604
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 1,
+      "status": 201,
+      "latency_ms": 17.130103999988933
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 0,
+      "status": 201,
+      "latency_ms": 20.965224000065064
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 4,
+      "status": 201,
+      "latency_ms": 20.50125499999922
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 7,
+      "status": 201,
+      "latency_ms": 22.04983800015725
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 3,
+      "status": 201,
+      "latency_ms": 25.672315000065282
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 5,
+      "status": 201,
+      "latency_ms": 31.28423099997235
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 8,
+      "status": 201,
+      "latency_ms": 35.260928999832686
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 2,
+      "status": 201,
+      "latency_ms": 41.11597499991149
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 9,
+      "status": 201,
+      "latency_ms": 41.85616499989919
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 11,
+      "status": 201,
+      "latency_ms": 26.192419999915728
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 6,
+      "status": 201,
+      "latency_ms": 46.572777999926984
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 13,
+      "status": 201,
+      "latency_ms": 25.684550000050876
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 10,
+      "status": 201,
+      "latency_ms": 34.50021399999059
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 12,
+      "status": 201,
+      "latency_ms": 32.77909399980672
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 14,
+      "status": 201,
+      "latency_ms": 29.688835999877483
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 15,
+      "status": 201,
+      "latency_ms": 25.649126999951477
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 16,
+      "status": 201,
+      "latency_ms": 21.96530200012603
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 17,
+      "status": 201,
+      "latency_ms": 21.488835000127438
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 18,
+      "status": 201,
+      "latency_ms": 20.89707699997234
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 19,
+      "status": 201,
+      "latency_ms": 21.874721999893154
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 20,
+      "status": 201,
+      "latency_ms": 22.86482099998466
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 21,
+      "status": 201,
+      "latency_ms": 23.846396999942954
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 22,
+      "status": 201,
+      "latency_ms": 24.597428999868498
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 23,
+      "status": 201,
+      "latency_ms": 24.04027399984443
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 24,
+      "status": 201,
+      "latency_ms": 24.392841000008048
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 25,
+      "status": 201,
+      "latency_ms": 24.150500999894575
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 26,
+      "status": 201,
+      "latency_ms": 25.11562400013645
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 27,
+      "status": 201,
+      "latency_ms": 24.187181000115743
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 28,
+      "status": 201,
+      "latency_ms": 22.87914700013971
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 29,
+      "status": 201,
+      "latency_ms": 22.248353000122734
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 30,
+      "status": 201,
+      "latency_ms": 21.80165999993733
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 31,
+      "status": 201,
+      "latency_ms": 21.516954999924565
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 32,
+      "status": 201,
+      "latency_ms": 21.953327000119316
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 33,
+      "status": 201,
+      "latency_ms": 23.196972000050664
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 34,
+      "status": 201,
+      "latency_ms": 23.73979000003601
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 35,
+      "status": 201,
+      "latency_ms": 24.020011999937196
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 36,
+      "status": 201,
+      "latency_ms": 23.336879999988014
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 37,
+      "status": 201,
+      "latency_ms": 23.582809000117777
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 38,
+      "status": 201,
+      "latency_ms": 23.96913899997344
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 39,
+      "status": 201,
+      "latency_ms": 24.176079000199024
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 40,
+      "status": 201,
+      "latency_ms": 23.336073000109536
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 42,
+      "status": 201,
+      "latency_ms": 20.857658000068113
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 41,
+      "status": 201,
+      "latency_ms": 25.316517000192107
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 43,
+      "status": 201,
+      "latency_ms": 22.793072000013126
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 44,
+      "status": 201,
+      "latency_ms": 22.255057999927885
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 45,
+      "status": 201,
+      "latency_ms": 22.76500900006795
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 46,
+      "status": 201,
+      "latency_ms": 23.1049559999974
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 47,
+      "status": 201,
+      "latency_ms": 23.764776999996684
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 49,
+      "status": 201,
+      "latency_ms": 21.280520999880537
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 48,
+      "status": 201,
+      "latency_ms": 25.861226000188253
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 50,
+      "status": 201,
+      "latency_ms": 23.70904800000062
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 51,
+      "status": 201,
+      "latency_ms": 23.156026999913593
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 52,
+      "status": 201,
+      "latency_ms": 23.073524999972506
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 53,
+      "status": 201,
+      "latency_ms": 24.056460000110746
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 54,
+      "status": 201,
+      "latency_ms": 23.511647999839624
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 55,
+      "status": 201,
+      "latency_ms": 22.743221999917296
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 56,
+      "status": 201,
+      "latency_ms": 22.445147000098586
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 58,
+      "status": 201,
+      "latency_ms": 21.70229900002596
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 57,
+      "status": 201,
+      "latency_ms": 24.8036879997926
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 59,
+      "status": 201,
+      "latency_ms": 23.497265000059997
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 60,
+      "status": 201,
+      "latency_ms": 25.188033999938853
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 61,
+      "status": 201,
+      "latency_ms": 24.63486700003159
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 62,
+      "status": 201,
+      "latency_ms": 24.84515600008308
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 65,
+      "status": 201,
+      "latency_ms": 21.5701459999309
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 64,
+      "status": 201,
+      "latency_ms": 25.12144399997851
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 63,
+      "status": 201,
+      "latency_ms": 28.61045200006629
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 66,
+      "status": 201,
+      "latency_ms": 25.0403479999477
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 67,
+      "status": 201,
+      "latency_ms": 22.823440999900413
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 68,
+      "status": 201,
+      "latency_ms": 25.42542800006231
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 69,
+      "status": 201,
+      "latency_ms": 24.52058600010787
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 71,
+      "status": 201,
+      "latency_ms": 23.334884999940186
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 70,
+      "status": 201,
+      "latency_ms": 26.3927920000242
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 72,
+      "status": 201,
+      "latency_ms": 25.351070999931835
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 73,
+      "status": 201,
+      "latency_ms": 23.65493599995716
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 74,
+      "status": 201,
+      "latency_ms": 24.423537000075157
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 76,
+      "status": 201,
+      "latency_ms": 22.694945000012012
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 75,
+      "status": 201,
+      "latency_ms": 27.871863999962443
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 77,
+      "status": 201,
+      "latency_ms": 26.185671999883198
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 78,
+      "status": 201,
+      "latency_ms": 24.144437000131802
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 79,
+      "status": 201,
+      "latency_ms": 24.641071000132797
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 80,
+      "status": 201,
+      "latency_ms": 24.018851999926483
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 82,
+      "status": 201,
+      "latency_ms": 21.673055000064778
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 81,
+      "status": 201,
+      "latency_ms": 25.930942000059076
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 83,
+      "status": 201,
+      "latency_ms": 23.60318599994571
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 84,
+      "status": 201,
+      "latency_ms": 23.784692000162977
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 85,
+      "status": 201,
+      "latency_ms": 23.753528000042934
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 86,
+      "status": 201,
+      "latency_ms": 22.676861000036297
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 87,
+      "status": 201,
+      "latency_ms": 22.76378799979284
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 88,
+      "status": 201,
+      "latency_ms": 24.985591999893586
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 89,
+      "status": 201,
+      "latency_ms": 25.756367999974827
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 90,
+      "status": 201,
+      "latency_ms": 24.74890600001345
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 91,
+      "status": 201,
+      "latency_ms": 25.60512399986692
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 92,
+      "status": 201,
+      "latency_ms": 25.151734000019133
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 93,
+      "status": 201,
+      "latency_ms": 24.639698000100907
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 94,
+      "status": 201,
+      "latency_ms": 24.43462500013993
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 95,
+      "status": 201,
+      "latency_ms": 23.97412099981011
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 96,
+      "status": 201,
+      "latency_ms": 24.065205999932004
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 97,
+      "status": 201,
+      "latency_ms": 24.797137999939878
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 98,
+      "status": 201,
+      "latency_ms": 23.659298999973544
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 99,
+      "status": 201,
+      "latency_ms": 23.67490500000713
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 100,
+      "status": 201,
+      "latency_ms": 24.019012000053408
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 101,
+      "status": 201,
+      "latency_ms": 23.3689299998332
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 102,
+      "status": 201,
+      "latency_ms": 23.914330000025075
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 103,
+      "status": 201,
+      "latency_ms": 23.95910199993523
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 104,
+      "status": 201,
+      "latency_ms": 23.246792999998434
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 105,
+      "status": 201,
+      "latency_ms": 27.519145000042045
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 107,
+      "status": 201,
+      "latency_ms": 24.603683999885106
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 106,
+      "status": 201,
+      "latency_ms": 29.06549499994071
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 108,
+      "status": 201,
+      "latency_ms": 25.606746999983443
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 109,
+      "status": 201,
+      "latency_ms": 24.525861999791232
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 110,
+      "status": 201,
+      "latency_ms": 23.744210999893767
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 111,
+      "status": 201,
+      "latency_ms": 24.05977100011114
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 112,
+      "status": 201,
+      "latency_ms": 23.79689999997936
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 113,
+      "status": 201,
+      "latency_ms": 24.94621499999994
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 114,
+      "status": 201,
+      "latency_ms": 25.133417000006375
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 115,
+      "status": 201,
+      "latency_ms": 23.868265999908544
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 116,
+      "status": 201,
+      "latency_ms": 24.35051900010876
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 117,
+      "status": 201,
+      "latency_ms": 24.323352000010345
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 118,
+      "status": 201,
+      "latency_ms": 24.315595999951256
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 119,
+      "status": 201,
+      "latency_ms": 24.415455999815094
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 120,
+      "status": 201,
+      "latency_ms": 24.450265000041327
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 121,
+      "status": 201,
+      "latency_ms": 24.689179000006334
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 122,
+      "status": 201,
+      "latency_ms": 24.717465000094307
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 123,
+      "status": 201,
+      "latency_ms": 24.143056999946566
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 124,
+      "status": 201,
+      "latency_ms": 24.32576399996833
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 125,
+      "status": 201,
+      "latency_ms": 21.824115999834248
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 126,
+      "status": 201,
+      "latency_ms": 23.477969999930792
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 127,
+      "status": 201,
+      "latency_ms": 23.23053300005995
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 128,
+      "status": 201,
+      "latency_ms": 23.410049999938565
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 129,
+      "status": 201,
+      "latency_ms": 23.841699000058725
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 131,
+      "status": 201,
+      "latency_ms": 21.771383999976024
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 130,
+      "status": 201,
+      "latency_ms": 27.266887999985556
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 132,
+      "status": 201,
+      "latency_ms": 24.005475999956616
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 133,
+      "status": 201,
+      "latency_ms": 24.675488999946538
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 134,
+      "status": 201,
+      "latency_ms": 24.92808000010882
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 135,
+      "status": 201,
+      "latency_ms": 25.612652000063463
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 136,
+      "status": 201,
+      "latency_ms": 23.12433800011604
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 137,
+      "status": 201,
+      "latency_ms": 24.530037999966225
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 138,
+      "status": 201,
+      "latency_ms": 24.24149499984196
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 139,
+      "status": 201,
+      "latency_ms": 23.722500000076252
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 140,
+      "status": 201,
+      "latency_ms": 25.349643000026845
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 141,
+      "status": 201,
+      "latency_ms": 23.92718999999488
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 142,
+      "status": 201,
+      "latency_ms": 26.236161000042557
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 143,
+      "status": 201,
+      "latency_ms": 24.89786199998889
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 144,
+      "status": 201,
+      "latency_ms": 23.931250000032378
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 145,
+      "status": 201,
+      "latency_ms": 23.421210000151405
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 146,
+      "status": 201,
+      "latency_ms": 27.17578300007517
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 147,
+      "status": 201,
+      "latency_ms": 26.424674000054438
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 149,
+      "status": 201,
+      "latency_ms": 24.06344599990007
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 148,
+      "status": 201,
+      "latency_ms": 27.010917000097834
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 151,
+      "status": 201,
+      "latency_ms": 22.377578000032372
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 150,
+      "status": 201,
+      "latency_ms": 27.881765000074665
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 153,
+      "status": 201,
+      "latency_ms": 23.200491999887163
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 154,
+      "status": 201,
+      "latency_ms": 23.71979100007593
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 152,
+      "status": 201,
+      "latency_ms": 28.295694999997067
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 155,
+      "status": 201,
+      "latency_ms": 25.0226590001148
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 157,
+      "status": 201,
+      "latency_ms": 22.0460020000246
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 156,
+      "status": 201,
+      "latency_ms": 26.102493000053073
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 159,
+      "status": 201,
+      "latency_ms": 23.412236000012854
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 160,
+      "status": 201,
+      "latency_ms": 22.93517999987671
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 158,
+      "status": 201,
+      "latency_ms": 28.509071999906155
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 161,
+      "status": 201,
+      "latency_ms": 23.31969800002298
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 162,
+      "status": 201,
+      "latency_ms": 22.97636200000852
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 163,
+      "status": 201,
+      "latency_ms": 25.374978000172632
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 165,
+      "status": 201,
+      "latency_ms": 23.924806999957582
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 164,
+      "status": 201,
+      "latency_ms": 27.76988000005076
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 166,
+      "status": 201,
+      "latency_ms": 23.860230999844134
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 167,
+      "status": 201,
+      "latency_ms": 24.20835999987503
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 168,
+      "status": 201,
+      "latency_ms": 24.76066200006244
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 169,
+      "status": 201,
+      "latency_ms": 25.208578000047055
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 170,
+      "status": 201,
+      "latency_ms": 24.426231999996162
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 172,
+      "status": 201,
+      "latency_ms": 22.90095700004713
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 171,
+      "status": 201,
+      "latency_ms": 28.3146060000945
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 173,
+      "status": 201,
+      "latency_ms": 22.856415999967794
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 174,
+      "status": 201,
+      "latency_ms": 23.543802999938634
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 175,
+      "status": 201,
+      "latency_ms": 24.010954999994283
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 176,
+      "status": 201,
+      "latency_ms": 23.22553399994831
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 177,
+      "status": 201,
+      "latency_ms": 23.493348000101832
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 178,
+      "status": 201,
+      "latency_ms": 22.533634999945207
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 180,
+      "status": 201,
+      "latency_ms": 23.950839999997697
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 179,
+      "status": 201,
+      "latency_ms": 28.587567000158742
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 181,
+      "status": 201,
+      "latency_ms": 26.20427900001232
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 183,
+      "status": 201,
+      "latency_ms": 23.47901500002081
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 182,
+      "status": 201,
+      "latency_ms": 26.933224000003975
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 184,
+      "status": 201,
+      "latency_ms": 24.66721299992969
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 185,
+      "status": 201,
+      "latency_ms": 24.07165999989047
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 186,
+      "status": 201,
+      "latency_ms": 24.503586000037103
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 187,
+      "status": 201,
+      "latency_ms": 24.479964999954973
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 188,
+      "status": 201,
+      "latency_ms": 24.97897699981877
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 189,
+      "status": 201,
+      "latency_ms": 21.655018000046766
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 190,
+      "status": 201,
+      "latency_ms": 24.25210399997013
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 191,
+      "status": 201,
+      "latency_ms": 26.00741600008405
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 192,
+      "status": 201,
+      "latency_ms": 25.902137999992192
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 193,
+      "status": 201,
+      "latency_ms": 24.997839999969074
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 194,
+      "status": 201,
+      "latency_ms": 24.277069000163465
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 195,
+      "status": 201,
+      "latency_ms": 23.443151000037687
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 196,
+      "status": 201,
+      "latency_ms": 22.419287000047916
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 197,
+      "status": 201,
+      "latency_ms": 21.097898000107307
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 199,
+      "status": 201,
+      "latency_ms": 17.518580999876576
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 1,
+      "request": 198,
+      "status": 201,
+      "latency_ms": 21.334163000119588
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 0,
+      "status": 201,
+      "latency_ms": 25.387469000179408
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 1,
+      "status": 201,
+      "latency_ms": 26.860490999979447
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 4,
+      "status": 201,
+      "latency_ms": 27.53112000004876
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 7,
+      "status": 201,
+      "latency_ms": 29.591169000013906
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 3,
+      "status": 201,
+      "latency_ms": 39.16706600011821
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 5,
+      "status": 201,
+      "latency_ms": 43.37334400020154
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 8,
+      "status": 201,
+      "latency_ms": 42.98640499996509
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 6,
+      "status": 201,
+      "latency_ms": 49.17808699997295
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 10,
+      "status": 201,
+      "latency_ms": 35.093193999955474
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 11,
+      "status": 201,
+      "latency_ms": 34.89585699981035
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 2,
+      "status": 201,
+      "latency_ms": 62.62371599996186
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 9,
+      "status": 201,
+      "latency_ms": 60.3239570000369
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 12,
+      "status": 201,
+      "latency_ms": 38.352916000121695
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 13,
+      "status": 201,
+      "latency_ms": 37.35387299980175
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 16,
+      "status": 201,
+      "latency_ms": 36.58313100004307
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 14,
+      "status": 201,
+      "latency_ms": 45.54075400005786
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 15,
+      "status": 201,
+      "latency_ms": 42.00804200013408
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 17,
+      "status": 201,
+      "latency_ms": 37.33014199997342
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 18,
+      "status": 201,
+      "latency_ms": 37.69727199983208
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 19,
+      "status": 201,
+      "latency_ms": 38.789328999882855
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 20,
+      "status": 201,
+      "latency_ms": 41.78761000002851
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 22,
+      "status": 201,
+      "latency_ms": 39.61819500000274
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 21,
+      "status": 201,
+      "latency_ms": 45.1454389999526
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 23,
+      "status": 201,
+      "latency_ms": 41.80815299991991
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 24,
+      "status": 201,
+      "latency_ms": 40.206177000072785
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 26,
+      "status": 201,
+      "latency_ms": 38.40145499998471
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 27,
+      "status": 201,
+      "latency_ms": 38.55884400013565
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 25,
+      "status": 201,
+      "latency_ms": 44.47179899989351
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 28,
+      "status": 201,
+      "latency_ms": 36.695472000019436
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 29,
+      "status": 201,
+      "latency_ms": 38.88034000010521
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 30,
+      "status": 201,
+      "latency_ms": 36.04409999979907
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 31,
+      "status": 201,
+      "latency_ms": 38.57966900000065
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 32,
+      "status": 201,
+      "latency_ms": 39.26369199984947
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 33,
+      "status": 201,
+      "latency_ms": 39.599837999958254
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 34,
+      "status": 201,
+      "latency_ms": 36.86464599991268
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 36,
+      "status": 201,
+      "latency_ms": 34.267706000036924
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 35,
+      "status": 201,
+      "latency_ms": 39.60462300005929
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 38,
+      "status": 201,
+      "latency_ms": 33.14975000012055
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 37,
+      "status": 201,
+      "latency_ms": 40.87312799993015
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 39,
+      "status": 201,
+      "latency_ms": 34.26619200013192
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 40,
+      "status": 201,
+      "latency_ms": 35.32086099994558
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 41,
+      "status": 201,
+      "latency_ms": 32.46941800011882
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 42,
+      "status": 201,
+      "latency_ms": 32.839852000051906
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 43,
+      "status": 201,
+      "latency_ms": 34.78039499987062
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 44,
+      "status": 201,
+      "latency_ms": 32.06020399989029
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 45,
+      "status": 201,
+      "latency_ms": 34.26828199985721
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 46,
+      "status": 201,
+      "latency_ms": 32.459872999879735
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 51,
+      "status": 201,
+      "latency_ms": 22.540290000051755
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 47,
+      "status": 201,
+      "latency_ms": 34.47447700000339
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 48,
+      "status": 201,
+      "latency_ms": 33.0344410001544
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 49,
+      "status": 201,
+      "latency_ms": 32.119728999987274
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 50,
+      "status": 201,
+      "latency_ms": 34.367191000001185
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 52,
+      "status": 201,
+      "latency_ms": 31.056754000019282
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 53,
+      "status": 201,
+      "latency_ms": 34.29241000003458
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 54,
+      "status": 201,
+      "latency_ms": 29.38068999992538
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 55,
+      "status": 201,
+      "latency_ms": 27.207855000142445
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 56,
+      "status": 201,
+      "latency_ms": 26.867218000006687
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 57,
+      "status": 201,
+      "latency_ms": 26.256652000029135
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 58,
+      "status": 201,
+      "latency_ms": 26.544173999809573
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 59,
+      "status": 201,
+      "latency_ms": 27.63642600007188
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 60,
+      "status": 201,
+      "latency_ms": 29.518620000089868
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 61,
+      "status": 201,
+      "latency_ms": 24.767049000047336
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 62,
+      "status": 201,
+      "latency_ms": 26.08847200008313
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 63,
+      "status": 201,
+      "latency_ms": 20.527379999975892
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 64,
+      "status": 201,
+      "latency_ms": 21.00854800005436
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 65,
+      "status": 201,
+      "latency_ms": 22.28495400004249
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 66,
+      "status": 201,
+      "latency_ms": 21.929839999984324
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 67,
+      "status": 201,
+      "latency_ms": 29.593006999903082
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 69,
+      "status": 201,
+      "latency_ms": 25.100424999891402
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 68,
+      "status": 201,
+      "latency_ms": 31.25888800013854
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 70,
+      "status": 201,
+      "latency_ms": 27.185248999785472
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 71,
+      "status": 201,
+      "latency_ms": 28.515551999817035
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 72,
+      "status": 201,
+      "latency_ms": 27.55072500008282
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 75,
+      "status": 201,
+      "latency_ms": 25.32829500000844
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 76,
+      "status": 201,
+      "latency_ms": 25.89900999987549
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 73,
+      "status": 201,
+      "latency_ms": 36.06254900000749
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 74,
+      "status": 201,
+      "latency_ms": 36.605104000045685
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 77,
+      "status": 201,
+      "latency_ms": 25.186405000113155
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 78,
+      "status": 201,
+      "latency_ms": 25.327527000172267
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 79,
+      "status": 201,
+      "latency_ms": 25.89201499995397
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 80,
+      "status": 201,
+      "latency_ms": 25.144342999965374
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 81,
+      "status": 201,
+      "latency_ms": 26.786735000086992
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 82,
+      "status": 201,
+      "latency_ms": 27.100382000071477
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 83,
+      "status": 201,
+      "latency_ms": 27.21806700014895
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 84,
+      "status": 201,
+      "latency_ms": 26.395797000077437
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 85,
+      "status": 201,
+      "latency_ms": 25.020270000140954
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 87,
+      "status": 201,
+      "latency_ms": 21.05096099990078
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 88,
+      "status": 201,
+      "latency_ms": 21.411072999853786
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 89,
+      "status": 201,
+      "latency_ms": 21.305483000105596
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 90,
+      "status": 201,
+      "latency_ms": 20.788065000033384
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 86,
+      "status": 201,
+      "latency_ms": 31.697024000095553
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 91,
+      "status": 201,
+      "latency_ms": 22.39214700011871
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 92,
+      "status": 201,
+      "latency_ms": 26.69576599987522
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 94,
+      "status": 201,
+      "latency_ms": 23.19998999996642
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 93,
+      "status": 201,
+      "latency_ms": 26.903519999905257
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 95,
+      "status": 201,
+      "latency_ms": 26.563931000055163
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 96,
+      "status": 201,
+      "latency_ms": 27.055554000071425
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 98,
+      "status": 201,
+      "latency_ms": 24.488990000008926
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 99,
+      "status": 201,
+      "latency_ms": 25.166206999983842
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 97,
+      "status": 201,
+      "latency_ms": 29.988069999944855
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 100,
+      "status": 201,
+      "latency_ms": 26.45859000017481
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 101,
+      "status": 201,
+      "latency_ms": 26.37290000006942
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 102,
+      "status": 201,
+      "latency_ms": 20.787071000086144
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 103,
+      "status": 201,
+      "latency_ms": 21.93241199984186
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 104,
+      "status": 201,
+      "latency_ms": 21.742650999840407
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 105,
+      "status": 201,
+      "latency_ms": 21.40638199989553
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 106,
+      "status": 201,
+      "latency_ms": 21.22022699995796
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 107,
+      "status": 201,
+      "latency_ms": 21.815388999812058
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 108,
+      "status": 201,
+      "latency_ms": 21.12122299990915
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 110,
+      "status": 201,
+      "latency_ms": 20.308364999891637
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 111,
+      "status": 201,
+      "latency_ms": 21.043839999947522
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 112,
+      "status": 201,
+      "latency_ms": 21.459968000044682
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 113,
+      "status": 201,
+      "latency_ms": 20.753231000071537
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 109,
+      "status": 201,
+      "latency_ms": 33.18605899994509
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 115,
+      "status": 201,
+      "latency_ms": 21.450600999969538
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 114,
+      "status": 201,
+      "latency_ms": 25.991316999807168
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 117,
+      "status": 201,
+      "latency_ms": 21.476240000083635
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 118,
+      "status": 201,
+      "latency_ms": 19.773537999981272
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 116,
+      "status": 201,
+      "latency_ms": 28.53535400004148
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 121,
+      "status": 201,
+      "latency_ms": 19.79450899989388
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 120,
+      "status": 201,
+      "latency_ms": 24.699524999959976
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 119,
+      "status": 201,
+      "latency_ms": 30.768969000064317
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 122,
+      "status": 201,
+      "latency_ms": 25.112600000056773
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 123,
+      "status": 201,
+      "latency_ms": 26.00959200003672
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 126,
+      "status": 201,
+      "latency_ms": 22.00642399998287
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 127,
+      "status": 201,
+      "latency_ms": 21.456587000102445
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 124,
+      "status": 201,
+      "latency_ms": 29.51657900007376
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 128,
+      "status": 201,
+      "latency_ms": 22.68616599985762
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 130,
+      "status": 201,
+      "latency_ms": 21.12773799990464
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 129,
+      "status": 201,
+      "latency_ms": 27.776544999824182
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 132,
+      "status": 201,
+      "latency_ms": 21.86458300002414
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 125,
+      "status": 201,
+      "latency_ms": 42.632854999965275
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 134,
+      "status": 201,
+      "latency_ms": 22.224625999797354
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 135,
+      "status": 201,
+      "latency_ms": 25.606508999999278
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 133,
+      "status": 201,
+      "latency_ms": 32.7538269998513
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 131,
+      "status": 201,
+      "latency_ms": 40.17360499983624
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 136,
+      "status": 201,
+      "latency_ms": 28.745886000024257
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 138,
+      "status": 201,
+      "latency_ms": 28.412325000090277
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 137,
+      "status": 201,
+      "latency_ms": 33.747800000128336
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 140,
+      "status": 201,
+      "latency_ms": 24.899365999999645
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 139,
+      "status": 201,
+      "latency_ms": 30.881713000098898
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 141,
+      "status": 201,
+      "latency_ms": 28.04975599997306
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 142,
+      "status": 201,
+      "latency_ms": 27.144090999854598
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 144,
+      "status": 201,
+      "latency_ms": 20.579437999913353
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 143,
+      "status": 201,
+      "latency_ms": 26.82235599991145
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 145,
+      "status": 201,
+      "latency_ms": 26.61770300005628
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 146,
+      "status": 201,
+      "latency_ms": 26.48976999989827
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 147,
+      "status": 201,
+      "latency_ms": 23.730832000183
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 148,
+      "status": 201,
+      "latency_ms": 24.07276799999636
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 149,
+      "status": 201,
+      "latency_ms": 24.842677999913576
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 150,
+      "status": 201,
+      "latency_ms": 25.403000000096654
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 151,
+      "status": 201,
+      "latency_ms": 26.02640500003872
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 152,
+      "status": 201,
+      "latency_ms": 24.81416000000536
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 153,
+      "status": 201,
+      "latency_ms": 28.663346000030288
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 154,
+      "status": 201,
+      "latency_ms": 26.261946999966312
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 157,
+      "status": 201,
+      "latency_ms": 22.080086999949344
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 156,
+      "status": 201,
+      "latency_ms": 25.925199999846882
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 155,
+      "status": 201,
+      "latency_ms": 28.773064000006343
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 158,
+      "status": 201,
+      "latency_ms": 25.642826999956014
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 159,
+      "status": 201,
+      "latency_ms": 25.694058999988556
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 161,
+      "status": 201,
+      "latency_ms": 21.346472000004724
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 160,
+      "status": 201,
+      "latency_ms": 25.709943000038038
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 162,
+      "status": 201,
+      "latency_ms": 23.902891000034288
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 163,
+      "status": 201,
+      "latency_ms": 22.15092000005825
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 164,
+      "status": 201,
+      "latency_ms": 21.469685000056415
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 165,
+      "status": 201,
+      "latency_ms": 24.236476999931256
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 166,
+      "status": 201,
+      "latency_ms": 24.961998999970092
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 168,
+      "status": 201,
+      "latency_ms": 23.78721700006281
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 170,
+      "status": 201,
+      "latency_ms": 22.09810799990919
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 167,
+      "status": 201,
+      "latency_ms": 29.593831000056525
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 169,
+      "status": 201,
+      "latency_ms": 27.81123599993407
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 171,
+      "status": 201,
+      "latency_ms": 27.102879000040048
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 173,
+      "status": 201,
+      "latency_ms": 22.690744999863455
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 172,
+      "status": 201,
+      "latency_ms": 28.889306000110082
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 174,
+      "status": 201,
+      "latency_ms": 25.045140999964133
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 175,
+      "status": 201,
+      "latency_ms": 22.962948999975197
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 176,
+      "status": 201,
+      "latency_ms": 22.293510000054084
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 177,
+      "status": 201,
+      "latency_ms": 21.21081299992511
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 178,
+      "status": 201,
+      "latency_ms": 21.886526000116646
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 179,
+      "status": 201,
+      "latency_ms": 23.22118600000067
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 180,
+      "status": 201,
+      "latency_ms": 22.341503000006924
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 181,
+      "status": 201,
+      "latency_ms": 22.821764999889638
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 182,
+      "status": 201,
+      "latency_ms": 24.61493500004508
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 183,
+      "status": 201,
+      "latency_ms": 24.408537999988766
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 184,
+      "status": 201,
+      "latency_ms": 24.90058299986231
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 186,
+      "status": 201,
+      "latency_ms": 22.164338000038697
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 185,
+      "status": 201,
+      "latency_ms": 26.107458000069528
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 187,
+      "status": 201,
+      "latency_ms": 24.308355000130177
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 188,
+      "status": 201,
+      "latency_ms": 23.357770000075107
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 189,
+      "status": 201,
+      "latency_ms": 22.777194000127565
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 190,
+      "status": 201,
+      "latency_ms": 23.10899999997673
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 191,
+      "status": 201,
+      "latency_ms": 22.830541000075755
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 192,
+      "status": 201,
+      "latency_ms": 21.352618000037182
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 193,
+      "status": 201,
+      "latency_ms": 20.949318000020867
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 194,
+      "status": 201,
+      "latency_ms": 20.182301999966512
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 195,
+      "status": 201,
+      "latency_ms": 19.96757400002025
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 196,
+      "status": 201,
+      "latency_ms": 18.486068000129308
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 198,
+      "status": 201,
+      "latency_ms": 16.065860000026078
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 197,
+      "status": 201,
+      "latency_ms": 18.568512000001647
+    },
+    {
+      "scenario": "telemetry",
+      "trial": 2,
+      "request": 199,
+      "status": 201,
+      "latency_ms": 16.27005199998166
+    }
+  ],
+  "caveat": "Synthetic local workload; data and unique lock rows are retained. Broker state is reported; no durable message-delivery guarantee."
+}
